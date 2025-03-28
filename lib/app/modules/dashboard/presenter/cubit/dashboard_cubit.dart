@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:marvelheroes_app/app/modules/dashboard/domain/errors.dart';
 import 'package:marvelheroes_app/app/modules/dashboard/domain/usecase.dart';
-import 'package:marvelheroes_app/app/modules/dashboard/infra/model/characters_response.dart';
+import 'package:marvelheroes_app/app/modules/dashboard/infra/model/characters_response_model/characters_response_model.dart';
 import 'package:marvelheroes_app/app/modules/dashboard/presenter/cubit/dashboard_state.dart';
 
 class DashboardCubit extends Cubit<DashboardState> {

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:marvelheroes_app/app/config/modular/app_module.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);

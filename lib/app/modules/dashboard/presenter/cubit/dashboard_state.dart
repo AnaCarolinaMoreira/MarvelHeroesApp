@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:marvelheroes_app/app/modules/dashboard/domain/errors.dart';
-import 'package:marvelheroes_app/app/modules/dashboard/infra/model/characters_response.dart';
+import 'package:marvelheroes_app/app/modules/dashboard/infra/model/characters_response_model/characters_response_model.dart';
 
 abstract class DashboardState extends Equatable {}
 

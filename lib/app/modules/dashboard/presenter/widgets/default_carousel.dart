@@ -1,8 +1,10 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:marvelheroes_app/app/modules/dashboard/infra/model/characters_response_model/characters_response_model.dart';
 
 class DefaultCarousel extends StatefulWidget {
-  const DefaultCarousel({super.key});
+  final List<Result> results;
+  const DefaultCarousel({super.key, required this.results});
 
   @override
   State<DefaultCarousel> createState() => _DefaultCarouselState();
