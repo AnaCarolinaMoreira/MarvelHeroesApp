@@ -1,0 +1,11 @@
+// domain
+export 'domain/domain.dart';
+// external
+export 'external/external.dart';
+// infra
+export 'infra/infra.dart';
+// presenter
+export 'presenter/screens/dashboard_screen.dart';
+// cubit
+export 'presenter/cubit/dashboard_cubit.dart';
+export 'presenter/cubit/dashboard_state.dart';

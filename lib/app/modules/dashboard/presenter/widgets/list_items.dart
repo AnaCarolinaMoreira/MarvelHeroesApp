@@ -8,33 +8,30 @@ class ListItems extends StatefulWidget {
 }
 
 class _ListItemsState extends State<ListItems> {
-  List<String> images = [
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTIZccfNPnqalhrWev-Xo7uBhkor57_rKbkw&usqp=CAU",
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTIZccfNPnqalhrWev-Xo7uBhkor57_rKbkw&usqp=CAU",
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTIZccfNPnqalhrWev-Xo7uBhkor57_rKbkw&usqp=CAU",
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTIZccfNPnqalhrWev-Xo7uBhkor57_rKbkw&usqp=CAU",
-  ];
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: 40,
-      itemBuilder: (BuildContext context, int index) {
-        return Card(
-          child: ListTile(
-            leading: const CircleAvatar(
-              backgroundColor: Colors.red,
-            ),
-            title: const Text('ddd'),
-            subtitle: const Text('ddd'),
-            trailing: IconButton(
-              icon: const Icon(
-                Icons.arrow_right,
+    return Padding(
+      padding: const EdgeInsets.all(16),
+      child: ListView.builder(
+        itemCount: 40,
+        itemBuilder: (BuildContext context, int index) {
+          return Card(
+            child: ListTile(
+              leading: const CircleAvatar(
+                backgroundColor: Colors.red,
               ),
-              onPressed: () {},
+              title: const Text('ddd'),
+              subtitle: const Text('ddd'),
+              trailing: IconButton(
+                icon: const Icon(
+                  Icons.arrow_right,
+                ),
+                onPressed: () {},
+              ),
             ),
-          ),
-        );
-      },
+          );
+        },
+      ),
     );
   }
 }

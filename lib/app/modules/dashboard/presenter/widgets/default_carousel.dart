@@ -24,6 +24,7 @@ class _DefaultCarouselState extends State<DefaultCarousel> {
 
   @override
   void initState() {
+    print('hora: ${DateTime.now()}');
     _pageController = PageController(
       viewportFraction: 0.8,
       initialPage: activePage,
@@ -152,12 +153,12 @@ class _CarouselSlider extends StatelessWidget {
         ),
         color: Colors.white,
         borderRadius: const BorderRadius.all(Radius.circular(25)),
-        boxShadow: [
+        boxShadow: const [
           BoxShadow(
-              color: Colors.red.shade400,
+              color: Colors.black12,
               spreadRadius: 5,
               blurRadius: 7,
-              offset: const Offset(2, 3)),
+              offset: Offset(2, 3)),
         ],
       ),
       child: Container(
