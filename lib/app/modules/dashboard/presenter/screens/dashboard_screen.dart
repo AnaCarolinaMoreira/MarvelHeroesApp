@@ -64,7 +64,7 @@ class _DashboardScreenState extends State<DashboardScreen> with DashboardMixin {
                   children: [
                     Expanded(
                       child: DefaultCarousel(
-                        results: resultsList,
+                        results: resultsList.take(4).toList(),
                       ),
                     ),
                     const SizedBox(

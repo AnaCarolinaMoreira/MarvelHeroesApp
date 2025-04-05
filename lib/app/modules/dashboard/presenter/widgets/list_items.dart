@@ -21,8 +21,8 @@ class _ListItemsState extends State<ListItems> {
             child: ListTile(
               leading: CircleAvatar(
                 radius: 30.0,
-                backgroundImage:
-                    NetworkImage(widget.results[index].thumbnail.extension),
+                backgroundImage: NetworkImage(
+                    '${widget.results[index].thumbnail.path}.${widget.results[index].thumbnail.extension}'),
                 backgroundColor: Colors.transparent,
               ),
               title: Text(widget.results[index].name),

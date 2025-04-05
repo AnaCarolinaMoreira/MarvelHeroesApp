@@ -14,13 +14,6 @@ class _DefaultCarouselState extends State<DefaultCarousel> {
   late PageController _pageController;
   int activePage = 0;
 
-  List<String> images = [
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTIZccfNPnqalhrWev-Xo7uBhkor57_rKbkw&usqp=CAU",
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTIZccfNPnqalhrWev-Xo7uBhkor57_rKbkw&usqp=CAU",
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTIZccfNPnqalhrWev-Xo7uBhkor57_rKbkw&usqp=CAU",
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTIZccfNPnqalhrWev-Xo7uBhkor57_rKbkw&usqp=CAU",
-  ];
-
   late Timer _timer;
   bool timerActive = false;
 
@@ -39,7 +32,7 @@ class _DefaultCarouselState extends State<DefaultCarousel> {
     _timer = Timer.periodic(const Duration(seconds: 4), (timer) {
       timerActive = !timerActive;
       if (timerActive) {
-        if (activePage < images.length - 1) {
+        if (activePage < widget.results.length - 1) {
           activePage++;
         } else {
           activePage = 0;
@@ -101,7 +94,7 @@ class _DefaultCarouselState extends State<DefaultCarousel> {
           height: MediaQuery.of(context).size.height * 0.40,
           width: MediaQuery.of(context).size.width,
           child: PageView.builder(
-            itemCount: images.length,
+            itemCount: widget.results.length,
             controller: _pageController,
             onPageChanged: (page) {
               setState(() {
@@ -112,16 +105,19 @@ class _DefaultCarouselState extends State<DefaultCarousel> {
             itemBuilder: (context, pagePosition) {
               bool active = pagePosition == activePage;
               return _CarouselSlider(
-                images: images,
+                image:
+                    '${widget.results[pagePosition].thumbnail.path}.${widget.results[pagePosition].thumbnail.extension}',
                 pagePosition: pagePosition,
                 active: active,
+                title: widget.results[pagePosition].name,
+                subTitle: widget.results[pagePosition].description,
               );
             },
           ),
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: indicators(images.length, activePage),
+          children: indicators(widget.results.length, activePage),
         ),
       ],
     );
@@ -130,14 +126,18 @@ class _DefaultCarouselState extends State<DefaultCarousel> {
 
 class _CarouselSlider extends StatelessWidget {
   const _CarouselSlider({
-    required this.images,
+    required this.image,
     required this.pagePosition,
     required this.active,
+    required this.title,
+    required this.subTitle,
   });
 
-  final List<String> images;
+  final String image;
   final int pagePosition;
   final bool active;
+  final String title;
+  final String subTitle;
 
   @override
   Widget build(BuildContext context) {
@@ -150,7 +150,7 @@ class _CarouselSlider extends StatelessWidget {
         image: DecorationImage(
           fit: BoxFit.fill,
           image: NetworkImage(
-            images[pagePosition],
+            image,
           ),
         ),
         color: Colors.white,
@@ -177,24 +177,24 @@ class _CarouselSlider extends StatelessWidget {
               Colors.black,
             ],
           ),
-          color: Colors.white,
-          borderRadius: const BorderRadius.all(Radius.circular(25)),
+          color: Colors.red,
+          borderRadius: BorderRadius.all(Radius.circular(25)),
         ),
-        child: const Align(
+        child: Align(
             alignment: Alignment.bottomLeft,
             child: Padding(
-              padding: EdgeInsets.all(16),
+              padding: const EdgeInsets.all(16),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Teste',
-                    style: TextStyle(color: Colors.white),
+                    title,
+                    style: const TextStyle(color: Colors.white),
                   ),
                   Text(
-                    'TesteTesteTesteTesteTeste',
-                    style: TextStyle(color: Colors.white),
+                    subTitle,
+                    style: const TextStyle(color: Colors.white),
                   ),
                 ],
               ),
