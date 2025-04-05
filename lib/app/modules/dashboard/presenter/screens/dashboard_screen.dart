@@ -72,7 +72,7 @@ class _DashboardScreenState extends State<DashboardScreen> with DashboardMixin {
                     ),
                     Expanded(
                       child: ListItems(
-                        results: resultsList,
+                        results: resultsList.skip(4).toList(),
                       ),
                     )
                   ],
